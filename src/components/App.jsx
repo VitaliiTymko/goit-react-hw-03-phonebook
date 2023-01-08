@@ -15,6 +15,27 @@ class App extends Component {
     filter: '',
   };
 
+  componentDidMount() {
+    console.log('App componentDidMaunt');
+    const contacts = localStorage.getItem('contacts');
+    const parseContacts = JSON.parse(contacts);
+    console.log(parseContacts);
+
+    if (parseContacts) {
+      this.setState({ contacts: parseContacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // console.log('App componentDidUpdate');
+    // console.log('prevState', prevState);
+    // console.log('thisState', this.state);
+    if (this.state.contacts !== prevState.contacts) {
+      console.log('obnovilos pole contacts');
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
+
   addContact = data => {
     console.log(data);
     const contact = {
