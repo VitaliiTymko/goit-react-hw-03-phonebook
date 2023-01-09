@@ -43,9 +43,9 @@ class App extends Component {
       name: data.name,
       number: data.number,
     };
-    console.log(contact.name);
-    console.log(this.state.contacts[0].name);
-    console.log(this.state.contacts.length);
+    // console.log(contact.name);
+    // console.log(this.state.contacts[0].name);
+    // console.log(this.state.contacts.length);
 
     if (
       this.state.contacts.findIndex(todo => todo.name === contact.name) !== -1
